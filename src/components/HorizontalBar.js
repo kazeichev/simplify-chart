@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 export default class HorizontalBar extends React.Component {
   static DEFAULT_BAR_PADDING = 5
@@ -60,7 +61,8 @@ export default class HorizontalBar extends React.Component {
           fontFamily:
             "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
           lineHeight: 'inherit',
-          color: '#000000'
+          color: '#000000',
+          fontWeight: 'inherit'
         }
       }
     }
@@ -77,8 +79,11 @@ export default class HorizontalBar extends React.Component {
   }
 
   render() {
-    const { options, label, value } = this.props
+    const { label, value } = this.props
     const { percentage } = this.state
+    const defaultOptions = HorizontalBar.defaultProps.options
+
+    const options = _.merge(defaultOptions, this.props.options)
 
     return (
       <div
@@ -131,7 +136,10 @@ export default class HorizontalBar extends React.Component {
             paddingTop: options.tick.padding.top,
             paddingRight: options.tick.padding.right,
             paddingBottom: options.tick.padding.bottom,
-            paddingLeft: window.innerWidth > HorizontalBar.MEDIA_MOBILE_SIZE ? options.tick.padding.left : 0
+            paddingLeft:
+              window.innerWidth > HorizontalBar.MEDIA_MOBILE_SIZE
+                ? options.tick.padding.left
+                : 0
           }}
         >
           <div
@@ -150,7 +158,8 @@ export default class HorizontalBar extends React.Component {
                 fontFamily: options.tickLabel.font.fontFamily,
                 fontSize: options.tickLabel.font.fontSize,
                 color: options.tickLabel.font.color,
-                lineHeight: options.tickLabel.font.lineHeight
+                lineHeight: options.tickLabel.font.lineHeight,
+                fontWeight: options.tickLabel.font.fontWeight
               }}
             >
               {value}
