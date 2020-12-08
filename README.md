@@ -1,4 +1,4 @@
-# simplify-chart
+# simplify-chart ([demo](https://kazeichev.github.io/simplify-chart/))
 
 > Simple horizontal bar chart. Simplify!
 
