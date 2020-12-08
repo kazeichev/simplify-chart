@@ -81,7 +81,8 @@ options = {
             fontSize: 14,
             fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
             lineHeight: 'inherit',
-            color: '#000000'
+            color: '#000000',
+            fontWeight: 'inherit'
         }
     }
 }

@@ -6,15 +6,16 @@ import HorizontalBar from './HorizontalBar'
 class HorizontalBarChart extends React.Component {
   static propTypes = {
     data: PropTypes.object,
-    options: PropTypes.object
+    options: PropTypes.object,
+    padding: PropTypes.object
   }
 
   render() {
-    const { data, options } = this.props
+    const { data, options, padding } = this.props
     const maxValue = Math.max(...Object.values(data))
 
     return (
-      <BaseChart {...this.props}>
+      <BaseChart padding={padding}>
         {Object.keys(data).map((label) => {
           const value = data[label]
           const percentage = (value * 100) / maxValue

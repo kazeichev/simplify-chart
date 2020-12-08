@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 class BaseChart extends React.Component {
   static DEFAULT_PADDING = 15
@@ -19,7 +20,8 @@ class BaseChart extends React.Component {
   }
 
   render() {
-    const { padding, children } = this.props
+    const { children } = this.props
+    const padding = _.merge(BaseChart.defaultProps.padding, this.props.padding)
 
     return (
       <div
