@@ -72,10 +72,20 @@ export default class HorizontalBar extends React.Component {
     percentage: 0
   }
 
-  componentDidMount() {
+  animatePercentage() {
     setTimeout(() => {
       this.setState({ percentage: this.props.percentage })
     }, 500)
+  }
+
+  componentDidMount() {
+    this.animatePercentage()
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.percentage !== this.props.percentage) {
+      this.animatePercentage()
+    }
   }
 
   render() {
