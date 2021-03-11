@@ -74,7 +74,7 @@ export default class HorizontalBar extends React.Component {
 
   animatePercentage() {
     setTimeout(() => {
-      this.setState({ percentage: this.props.percentage })
+      this.setState({percentage: this.props.percentage})
     }, 500)
   }
 
@@ -89,8 +89,8 @@ export default class HorizontalBar extends React.Component {
   }
 
   render() {
-    const { label, value } = this.props
-    const { percentage } = this.state
+    const {label, value} = this.props
+    const {percentage} = this.state
     const defaultOptions = HorizontalBar.defaultProps.options
 
     const options = _.merge(defaultOptions, this.props.options)
@@ -129,9 +129,10 @@ export default class HorizontalBar extends React.Component {
               color: options.label.font.color,
               lineHeight: options.label.font.lineHeight
             }}
-          >
-            {label}
-          </span>
+            dangerouslySetInnerHTML={{
+              __html: label
+            }}
+          />
         </div>
 
         <div
